@@ -88,7 +88,6 @@ jobs:
           SUPPLY_PACKAGE_NAME: 'com.makinap.neotrack'
           SUPPLY_JSON_KEY_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
         run: |
-          echo ${{ secrets.ANDROID_PACKAGE_NAME }}
           bundle exec fastlane supply \
           --aab build/app/outputs/bundle/release/app-release.aab \
           --track beta
