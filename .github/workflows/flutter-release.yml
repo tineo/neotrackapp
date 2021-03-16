@@ -85,7 +85,7 @@ jobs:
 
       - name: Release to Google Play (beta)
         env:
-          SUPPLY_PACKAGE_NAME: 'com.makinap.neotrack'
+          SUPPLY_PACKAGE_NAME: ${{ secrets.ANDROID_PACKAGE_NAME }}
           SUPPLY_JSON_KEY_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
         run: |
           bundle exec fastlane supply \
