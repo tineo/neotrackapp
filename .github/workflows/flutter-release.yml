@@ -1,9 +1,11 @@
 name: Flutter release
 
 on:
-  release:
-    types: [published]
-
+  #release:
+  #  types: [published]
+  push:
+    branches:
+      - 'main'
   jobs:
     release:
       name: Test, build and release
