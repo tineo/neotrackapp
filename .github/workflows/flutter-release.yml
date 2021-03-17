@@ -41,7 +41,7 @@ jobs:
 
       - name: Create local.properties
         run: |
-          echo ""
+          echo "" >> android/local.properties
           echo "flutter.versionName=${{ github.run_id }}" >> android/local.properties
           echo "flutter.versionCode=${{ github.run_number }}" >> android/local.properties
           cat android/local.properties
