@@ -39,6 +39,12 @@ jobs:
       - name: Download pub dependencies
         run: flutter pub get
 
+      - name: Create local.properties
+        run: |
+          echo "flutter.versionName=${{ github.run_id }}" >> android/local.properties
+          echo "flutter.versionCode=${{ github.run_number }}" >> android/local.properties
+          cat android/local.properties
+
       - name: Run build_runner
         run: flutter pub run build_runner build --delete-conflicting-outputs
 
@@ -61,11 +67,6 @@ jobs:
           echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" >> android/key.properties
           echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
           echo "keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}" >> android/key.properties
-      - name: Create local.properties
-        run: |
-          echo "flutter.versionName=${{ github.run_id }}" >> android/local.properties
-          echo "flutter.versionCode=${{ github.run_number }}" >> android/local.properties
-          cat android/local.properties
 
       - name: Build Android App Bundle
         run: flutter build appbundle
