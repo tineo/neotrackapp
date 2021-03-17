@@ -45,8 +45,8 @@ jobs:
           echo "flutter.versionName=${{ github.run_id }}" >> android/local.properties
           echo "flutter.versionCode=${{ github.run_number }}" >> android/local.properties
           cat android/local.properties
-          sed -i 's/versionName flutterVersionName/versionName ${{ github.run_number }}/g' android/app/build.gradle
-          sed -i 's/versionCode flutterVersionCode.toInteger()/versionCode ${{ github.run_id }}/g' android/app/build.gradle
+          sed -i 's/versionName flutterVersionName/versionName 1.0.${{ github.run_id }}/g' android/app/build.gradle
+          sed -i 's/versionCode flutterVersionCode.toInteger()/versionCode ${{ github.run_number }}/g' android/app/build.gradle
           cat android/app/build.gradle
 
       - name: Run build_runner
