@@ -100,4 +100,4 @@ jobs:
         run: |
           bundle exec fastlane supply \
           --aab build/app/outputs/bundle/release/app-release.aab \
-          --track beta
+          --track alpha
